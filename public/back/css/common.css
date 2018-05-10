@@ -42,6 +42,12 @@ ul {
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 999;
+  transition: all 1s;
+}
+
+.lt_aside.hidemenu {
+  left: -180px;
 }
 
 .lt_aside .brand {
@@ -100,9 +106,46 @@ ul {
   padding-left: 60px;
 }
 
+/* lt_main  */
+.lt_main {
+  min-height: 1000px;
+  background-color: pink;
+  padding-left: 180px;
+  padding-top: 50px;
+  transition: all 1s;
+}
 
+.lt_main.hidemenu {
+  padding-left: 0;
+}
 
+.lt_main .breadcrumb {
+  margin-top: 20px;
+}
 
+.lt_topbar {
+  height: 50px;
+  background-color: #3C8DBC;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  padding-left: 180px;
+  transition: all 1s;
+}
+
+.lt_topbar.hidemenu {
+  padding-left: 0;
+}
+
+.lt_topbar a {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
 
 
 
