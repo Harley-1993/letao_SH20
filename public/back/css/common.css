@@ -33,6 +33,10 @@ ul {
   list-style: none;
 }
 
+.red{
+  color: #A94442;
+}
+
 /* lt_aside 开始 */
 
 .lt_aside {

@@ -33,19 +33,56 @@ $(document).ajaxStop(function () {
 });
 
 $(function () {
-  
+  //二级菜单切换
   $('.category').click(function () {
     
     $('.lt_aside .child').stop().slideToggle();
   })
   
-  //
+  //菜单切换
   $('.icon_menu').click(function () {
     
     $('.lt_aside').toggleClass("hidemenu");
     $('.lt_topbar').toggleClass("hidemenu");
     $('.lt_main').toggleClass("hidemenu");
-  })
+  });
+  
+  //模态框显示
+  $('.icon_logout').click(function () {
+    $('#logoutModal').modal('show')
+  });
+  
+  //点击模态框退出按钮
+  $('#logoutBtn').click(function () {
+    $.ajax({
+      type: 'get',
+      url: '/employee/employeeLogout',
+      dataType: 'json',
+      success: function (info) {
+        if (info.success) {
+          location.href = "login.html";
+        }
+      }
+    });
+  });
+  
+  //登录拦截
+  
+  if (location.href.indexOf("login.html") === -1){//判断当前是否是登录页
+    $.ajax({
+      type: 'get',
+      url: '/employee/checkRootLogin',
+      dataType: 'json',
+      success: function (info) {
+        if (info.error === 400) {
+          location.href = "login.html";
+        }
+      }
+    });
+  }
+  
+  
+  
 })
 
 
