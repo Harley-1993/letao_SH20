@@ -13,6 +13,9 @@ $(function () {
           //非空校验
           notEmpty: {
             message: "用户名不能为空"
+          },
+          callback:{
+            message:"用户名不存在"
           }
         }
       },
@@ -26,6 +29,9 @@ $(function () {
             min: 6,
             max: 12,
             message: "密码长度必须在6-12位之间"
+          },
+          callback:{
+            message:"密码错误"
           }
         }
         
@@ -54,10 +60,13 @@ $(function () {
         }
         
         if (info.error === 1001) {
-          alert("密码错误");
+          // alert("密码错误");
+          
+          $('#form').data("bootstrapValidator").updateStatus("password","INVALID","callback");
         }
         if (info.error === 1000) {
-          alert("用户名不存在");
+          // alert("用户名不存在");
+          $('#form').data("bootstrapValidator").updateStatus("username","INVALID","callback");
         }
         // if (info.error) {
         //   alert("用户名或密码错误");
